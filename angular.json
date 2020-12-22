@@ -87,9 +87,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "select2/select2.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "jquery/jquery.min.js",
+              "select2/select2.min.js",
+              
+              "jquery/jquery.js",
+              "jquery/global.min.js"
+            ]
           }
         },
         "lint": {
@@ -120,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "formValidationInAngular"
+  "defaultProject": "formValidationInAngular",
+  "cli": {
+    "analytics": false
+  }
 }
