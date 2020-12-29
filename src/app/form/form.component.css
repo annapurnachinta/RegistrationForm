@@ -495,4 +495,11 @@ padding-bottom: 73px;
     padding-bottom: 50px;
 }
 }
+ 
+.ng-invalid.ng-touched {
+    border-color: red;
+  }
   
+  .invalid-feedback{
+    color: red;
+  }
