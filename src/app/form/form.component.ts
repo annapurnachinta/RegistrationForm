@@ -2,6 +2,7 @@ import { FormDetails } from './../models/form-details.model';
 import { FormDetailsService } from './../services/form-details.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AlertifyService } from '../services/alertify.service';
 
 @Component({
   selector: 'app-form',
@@ -14,47 +15,45 @@ export class FormComponent implements OnInit {
   user: FormDetails;
 
   constructor(private formBuilder: FormBuilder,
-              private userService: FormDetailsService,) { }
+              private userService: FormDetailsService,
+              private alertify: AlertifyService) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
       emailId : new FormControl(null, [Validators.required, Validators.email]),
-      // phoneNo: new FormControl(null, [Validators.required, Validators.maxLength(10)]),
-      // gender: new FormControl(null, Validators.required),
-      // role: new FormControl(null, Validators.required),
+      phoneNo: new FormControl(null, [Validators.required, Validators.maxLength(10)]),
+      role: new FormControl(null, Validators.required),
+      gender: new FormControl(null, Validators.required),
   });
-
   }
-
-  // registrationForm = new FormGroup({
-  //   firstName : new FormControl('', Validators.required),
-  // })
 
   OnSubmit(){
     this.submitted = true;
 
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
-
       this.userService.addUser(this.userData());
-      alert('Congrats, you are successfully registered');
+      this.onReset();
+      this.alertify.success('Congrats, you are successfully registered');
   } else {
-    console.log(this.registerForm.value);
-      alert('Kindly provide the required fields');
+      this.alertify.error('Kindly provide the required fields');
+  }
   }
 
+  onReset(){
+    this.submitted = false;
+    this.registerForm.reset();
   }
 
   userData(): FormDetails {
     return this.user = {
       firstName : this.firstName.value,
       lastName:this.lastName.value,
-      emailId : this.emailId.value
-      // phoneNo :this.phoneNo.value,
-      // gender: this.gender.value,
-      // role: this.role.value
+      emailId : this.emailId.value,
+      phoneNo :this.phoneNo.value,
+      role: this.role.value,
+      gender: this.gender.value,
     }
   }
 
@@ -65,17 +64,20 @@ export class FormComponent implements OnInit {
   get lastName() {
     return this.registerForm.get('lastName') as FormControl;
   }
-  // get phoneNo() {
-  //   return this.registerForm.get('passwphoneNoord') as FormControl;
-  // }
+
   get emailId() {
     return this.registerForm.get('emailId') as FormControl;
   }
-  // get gender() {
-  //   return this.registerForm.get('gender') as FormControl;
-  // }
-  // get role() {
-  //   return this.registerForm.get('role') as FormControl;
-  // }
 
+  get phoneNo() {
+    return this.registerForm.get('phoneNo') as FormControl;
+  }
+
+  get role() {
+    return this.registerForm.get('role') as FormControl;
+  }
+
+  get gender() {
+    return this.registerForm.get('gender') as FormControl;
+  }
 }

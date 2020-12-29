@@ -16,8 +16,8 @@
                                             formControlName="firstName" required>
                                         <label class="label--desc">first name</label>
                                         <span *ngIf="!firstName.valid && (firstName.touched || submitted)"
-                                            class="error-block">
-                                            Please provide First name
+                                            class="invalid-feedback" style="padding-left: 50px;">
+                                            Please provide first name
                                         </span>
                                     </div>
                                 </div>
@@ -27,8 +27,8 @@
                                             formControlName="lastName" required>
                                         <label class="label--desc">last name</label>
                                         <span *ngIf="!lastName.valid && (lastName.touched || submitted)"
-                                            class="error-block">
-                                            Please provide Last name
+                                            class="invalid-feedback" style="padding-left: 50px;">
+                                            Please provide last name
                                         </span>
                                     </div>
                                 </div>
@@ -42,65 +42,68 @@
                                 <input class="input--style-5" type="email" name="emailId" formControlName="emailId"
                                     required>
                                 <label class="label--desc">Email</label>
-                                <div *ngIf="!emailId.valid && (emailId.touched || submitted)" class="invalid-feedback">
-                                    Email Id is required
+                                <div *ngIf="!emailId.valid && (emailId.touched || submitted)" 
+                                    class="invalid-feedback" style="padding-left: 160px;">
+                                    Please provide email address
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="form-row">
+                    <div class="form-row">
                         <div class="name">Phone</div>
                         <div class="value">
                             <div class="input-group">
-                                <input class="input--style-5" type="number" name="phoneNo" formControlName="phoneNo"
+                                <input class="input--style-5" type="text" name="phoneNo" formControlName="phoneNo"
                                     required>
                                 <label class="label--desc">Phone Number</label>
-                                <div *ngIf="!phoneNo.valid && (phoneNo.touched || submitted)" class="invalid-feedback">
+                                <div *ngIf="!phoneNo.valid && (phoneNo.touched || submitted)" 
+                                    class="invalid-feedback" style="padding-left: 160px;">
                                     <span *ngIf="phoneNo.hasError('required')">
-                                        Please provide mobile
+                                        Please provide phone number
                                     </span>
                                     <span *ngIf="phoneNo.hasError('maxlength')">
-                                        Invalid mobile number
+                                        Invalid phone number
                                     </span>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-                    <!-- <div class="form-row">
+                    </div>
+                    <div class="form-row">
                         <div class="name">Role</div>
                         <div class="value">
                             <div class="input-group">
                                 <div class="rs-select2 js-select-simple select--no-search">
                                     <select name="role" class="custom-select" formControlName="role" required>
                                         <option selected="selected">Choose option</option>
-                                        <option>Developer</option>
-                                        <option>Tester</option>
-                                        <option>Lead</option>
+                                        <option value="development">Developer</option>
+                                        <option value="tester">Tester</option>
+                                        <option value="lead">Lead</option>
                                     </select>
-                                    <span *ngIf="!role.valid && (role.touched || submitted)" class="error-block">
-                                        Please provide First name
+                                    <span *ngIf="!role.valid && (role.touched || submitted)" 
+                                        class="invalid-feedback" style="padding-left: 160px;">
+                                        Please provide select role
                                     </span>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-                    <!-- <div class="form-row">
+                    </div>
+                    <div class="form-row">
                         <label class="label label--block">Gender</label>
                         <div class="p-t-15">
                             <label class="radio-container m-r-55">Male
-                                <input type="radio" value="maleGender" formControlName="gender" required>
+                                <input type="radio" value="male" formControlName="gender" required>
                                 <span class="checkmark"></span>
                             </label>
                             <label class="radio-container">Female
-                                <input type="radio" checked="checked" formControlName="gender" value="femaleGender"
-                                    required>
+                                <input type="radio" checked="checked" formControlName="gender" value="female" required>
                                 <span class="checkmark"></span>
                             </label>
-                            <span *ngIf="!gender.valid && (gender.touched || submitted)" class="error-block">
-                                Please provide First name
+                            <span *ngIf="!gender.valid && (gender.touched || submitted)" 
+                               class="invalid-feedback" style="padding-left: 60px;">
+                                Please provide gender
                             </span>
                         </div>
-                    </div> -->
+                    </div>
                     <div>
                         <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
                     </div>

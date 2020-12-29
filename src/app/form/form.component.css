@@ -503,3 +503,8 @@ padding-bottom: 73px;
   .invalid-feedback{
     color: red;
   }
+
+  .alertify-logs.right {
+    right: 16px!important;
+}
+
