@@ -3,6 +3,7 @@ import { FormDetailsService } from './../services/form-details.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertifyService } from '../services/alertify.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -16,7 +17,9 @@ export class FormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private userService: FormDetailsService,
-              private alertify: AlertifyService) { }
+              private alertify: AlertifyService,
+              private router : Router,
+              private route: ActivatedRoute,) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -79,5 +82,11 @@ export class FormComponent implements OnInit {
 
   get gender() {
     return this.registerForm.get('gender') as FormControl;
+  }
+
+  nextPage(){
+    setTimeout(() => {
+      this.router.navigate(['/users-list'], {relativeTo: this.route})     
+    }, 5000);
   }
 }

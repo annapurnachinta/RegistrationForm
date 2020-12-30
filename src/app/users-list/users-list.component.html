@@ -1,0 +1,30 @@
+<div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100">
+                <table>
+                    <thead>
+                        <tr class="table100-head">
+                            <th class="column1">Id</th>
+                            <th class="column2">Name</th>
+                            <th class="column3">Email ID</th>
+                            <th class="column4">Phone Number</th>
+                            <th class="column5">Role</th>
+                            <th class="column6">Gender</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users;let index = index;">
+                            <td class="column1">{{index+1}}</td>
+                            <td class="column2">{{user.firstName}} {{user.lastName}}</td>
+                            <td class="column3">{{user.emailId}}</td>
+                            <td class="column4">{{user.phoneNo}}</td>
+                            <td class="column5">{{user.role}}</td>
+                            <td class="column6">{{user.gender}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

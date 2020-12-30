@@ -14,8 +14,14 @@ export class FormDetailsService {
       users = JSON.parse(localStorage.getItem('Users'));
       users = [user, ...users];
     } else {
-      users = [user];
+      users.push(user)
     }
     localStorage.setItem('Users', JSON.stringify(users));
   }
+
+  getUser(){
+    return JSON.parse(localStorage.getItem('Users'))
+  }
+
+
 }
