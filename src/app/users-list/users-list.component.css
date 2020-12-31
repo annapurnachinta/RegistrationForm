@@ -94,6 +94,7 @@
   
   .column2 {
     width: 200px;
+    text-transform: capitalize;
   }
   
   .column3 {
@@ -107,13 +108,33 @@
   
   .column5 {
     width: 100px;
-    text-align: right!important;
+    text-align: left!important;
+    text-transform: capitalize;
   }
   
   .column6 {
     width: 150px;
-    text-align: right!important;
-    padding-right: 45px;
+    text-align: center!important;
+    padding-right: 10px;
+    text-transform: capitalize;
+  }
+
+  .column7 #edit{
+    color: orange;
+    font-size:medium;
+    padding-right: 7px;
+  }
+
+  .column7 #delete{
+    color: red;
+    font-size:medium;
+    padding-right: 5px;
+  }
+
+  .column7{
+    width: 50px;
+    text-align: left!important;
+    padding-right: 50px;
   }
   
   
@@ -153,25 +174,6 @@
       left: 30px;
       top: 0;
     }
-    table tbody tr td:nth-child(1):before {
-      content: "Date";
-    }
-    table tbody tr td:nth-child(2):before {
-      content: "Order ID";
-    }
-    table tbody tr td:nth-child(3):before {
-      content: "Name";
-    }
-    table tbody tr td:nth-child(4):before {
-      content: "Price";
-    }
-    table tbody tr td:nth-child(5):before {
-      content: "Quantity";
-    }
-    table tbody tr td:nth-child(6):before {
-      content: "Total";
-    }
-  
     .column4,
     .column5,
     .column6 {
@@ -198,3 +200,7 @@
       padding-right: 15px;
     }
   }
+
+  /* 'Bitrate:303040.001 kBits/s
+  Bitrate:127.999 kBits/s
+  4191645' */

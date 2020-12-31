@@ -5,22 +5,28 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FormDetailsService {
+  users = JSON.parse(localStorage.getItem('Users')) || [];
 
   constructor() { }
 
   addUser(user: FormDetails) {
-    let users = [];
     if (localStorage.getItem('Users')) {
-      users = JSON.parse(localStorage.getItem('Users'));
-      users = [user, ...users];
+      this.users = JSON.parse(localStorage.getItem('Users'));
+      this.users.push(user);
     } else {
-      users.push(user)
+      this.users.push(user)
     }
-    localStorage.setItem('Users', JSON.stringify(users));
+    localStorage.setItem('Users', JSON.stringify(this.users));
   }
 
   getUser(){
     return JSON.parse(localStorage.getItem('Users'))
+  }
+
+  deleteUser(index: number){
+    this.users.splice(index, 1)
+    localStorage.removeItem(this.users)
+    localStorage.setItem('Users', JSON.stringify(this.users))
   }
 
 

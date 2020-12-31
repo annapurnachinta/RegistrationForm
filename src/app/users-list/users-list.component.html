@@ -11,6 +11,7 @@
                             <th class="column4">Phone Number</th>
                             <th class="column5">Role</th>
                             <th class="column6">Gender</th>
+                            <th class="column7">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -21,6 +22,10 @@
                             <td class="column4">{{user.phoneNo}}</td>
                             <td class="column5">{{user.role}}</td>
                             <td class="column6">{{user.gender}}</td>
+                            <th class="column7">
+                                <a title="Update user" (click)="updateUser(index)"><i class="fa fa-edit" id="edit"></i></a>
+                                <a title="Delete user" (click)="deleteUser(index)"><i class="fa fa-trash-o" id="delete"></i></a>
+                            </th>
                         </tr>
                     </tbody>
                 </table>

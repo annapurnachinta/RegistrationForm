@@ -15,6 +15,9 @@ export class UsersListComponent implements OnInit {
     this.users  = this.userService.getUser()
   }
 
-
+  deleteUser(index){
+    this.users = this.userService.deleteUser(index)
+    this.users  = this.userService.getUser()
+  }
 
 }
