@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersListComponent } from './users-list/users-list.component';
+import { UserUpdateComponent } from './user-update/user-update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    UsersListComponent
+    UsersListComponent,
+    UserUpdateComponent
   ],
   imports: [
     BrowserModule,

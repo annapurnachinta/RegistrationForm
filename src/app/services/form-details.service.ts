@@ -29,5 +29,12 @@ export class FormDetailsService {
     localStorage.setItem('Users', JSON.stringify(this.users))
   }
 
+  getIndex(index: number){
+    return this.users[index];
+}
+
+  updateUser(index: number, updateUser: FormDetails){
+    this.users[index] = updateUser
+  }
 
 }

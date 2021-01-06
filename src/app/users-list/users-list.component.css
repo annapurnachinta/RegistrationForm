@@ -27,7 +27,8 @@
     position: relative;
   }
   table * {
-    position: relative;
+    position: relative!important;
+    border-collapse: collapse; 
   }
   table td, table th {
     padding-left: 8px;
@@ -187,6 +188,8 @@
     .column2,
     .column3 {
       width: 100%;
+      position: sticky; 
+      top:0;
     }
   
     tbody tr {
@@ -204,3 +207,9 @@
   /* 'Bitrate:303040.001 kBits/s
   Bitrate:127.999 kBits/s
   4191645' */
+
+  .table {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormDetailsService } from '../services/form-details.service';
 
 @Component({
@@ -9,7 +10,9 @@ import { FormDetailsService } from '../services/form-details.service';
 export class UsersListComponent implements OnInit {
   users
 
-  constructor(private userService: FormDetailsService) { }
+  constructor(private userService: FormDetailsService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.users  = this.userService.getUser()
@@ -18,6 +21,10 @@ export class UsersListComponent implements OnInit {
   deleteUser(index){
     this.users = this.userService.deleteUser(index)
     this.users  = this.userService.getUser()
+  }
+
+  updateUser(index){
+    this.router.navigate(['/users-update'], {relativeTo: this.route})
   }
 
 }
