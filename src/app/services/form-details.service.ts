@@ -1,11 +1,14 @@
 import { FormDetails } from 'src/app/models/form-details.model';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormDetailsService {
   users = JSON.parse(localStorage.getItem('Users')) || [];
+  updateForm = new Subject<number>();
+  user: FormDetails[] = JSON.parse(localStorage.getItem('Users')) || []
 
   constructor() { }
 
@@ -29,12 +32,7 @@ export class FormDetailsService {
     localStorage.setItem('Users', JSON.stringify(this.users))
   }
 
-  getIndex(index: number){
-    return this.users[index];
-}
-
-  updateUser(index: number, updateUser: FormDetails){
-    this.users[index] = updateUser
+  getUserIndex(index: number){
+    return this.user[index];
   }
-
 }

@@ -5,22 +5,28 @@
                 <h2 class="title">Update User</h2>
             </div>
             <div class="card-body">
-                <form [formGroup]="updateForm" (ngSubmit)="OnSubmit()">
+                <form (ngSubmit)="OnSubmit(f)" #f="ngForm">
                     <div class="form-row m-b-55">
                         <div class="name">Name</div>
                         <div class="value">
                             <div class="row row-space">
                                 <div class="col-2">
                                     <div class="input-group-desc">
-                                        <input class="input--style-5" type="text" name="firstName"
-                                            formControlName="firstName" required>
+                                        <input class="input--style-5" 
+                                        id="firstName"
+                                        type="text" 
+                                        name="firstName"
+                                        ngModel>
                                         <label class="label--desc">first name</label>
                                     </div>
                                 </div>
                                 <div class="col-2">
                                     <div class="input-group-desc">
-                                        <input class="input--style-5" type="text" name="lastName"
-                                            formControlName="lastName" required>
+                                        <input class="input--style-5" 
+                                        id="lastName"
+                                        type="text" 
+                                        name="lastName"
+                                        ngModel>
                                         <label class="label--desc">last name</label>
                                     </div>
                                 </div>
@@ -31,8 +37,11 @@
                         <div class="name">Email</div>
                         <div class="value">
                             <div class="input-group">
-                                <input class="input--style-5" type="email" name="emailId" formControlName="emailId"
-                                    required>
+                                <input class="input--style-5" 
+                                id="emailId"
+                                type="email" 
+                                name="emailId"
+                                ngModel>
                                 <label class="label--desc">Email</label>
                             </div>
                         </div>
@@ -41,8 +50,11 @@
                         <div class="name">Phone</div>
                         <div class="value">
                             <div class="input-group">
-                                <input class="input--style-5" type="text" name="phoneNo" formControlName="phoneNo"
-                                    required>
+                                <input class="input--style-5"
+                                id="phoneNo" 
+                                type="text" 
+                                name="phoneNo"
+                                ngModel>
                                 <label class="label--desc">Phone Number</label>
                             </div>
                         </div>
@@ -52,7 +64,7 @@
                         <div class="value">
                             <div class="input-group">
                                 <div class="rs-select2 js-select-simple select--no-search">
-                                    <select name="role" class="custom-select" formControlName="role" required>
+                                    <select name="role" class="custom-select" ngModel>
                                         <option selected="selected">Choose option</option>
                                         <option value="development">Developer</option>
                                         <option value="tester">Tester</option>
@@ -66,11 +78,11 @@
                         <label class="label label--block">Gender</label>
                         <div class="p-t-15">
                             <label class="radio-container m-r-55">Male
-                                <input type="radio" value="male" formControlName="gender" required>
+                                <input type="radio" value="male" name="gender" ngModel>
                                 <span class="checkmark"></span>
                             </label>
                             <label class="radio-container">Female
-                                <input type="radio" checked="checked" formControlName="gender" value="female" required>
+                                <input type="radio" name="gender" value="female" ngModel>
                                 <span class="checkmark"></span>
                             </label>
                         </div>

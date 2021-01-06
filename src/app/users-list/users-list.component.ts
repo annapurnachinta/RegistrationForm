@@ -24,7 +24,9 @@ export class UsersListComponent implements OnInit {
   }
 
   updateUser(index){
-    this.router.navigate(['/users-update'], {relativeTo: this.route})
+    this.userService.updateForm.next(index)
+    console.log(index)
+    this.router.navigate(['/users-update'])
   }
 
 }
